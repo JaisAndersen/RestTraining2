@@ -1,6 +1,6 @@
 const baseUrl ="https://anbo-restbookquerystring.azurewebsites.net/api/books"
 
-Vue.CreateApp({
+Vue.createApp({
     data() {
         return {
             books: [],
@@ -8,14 +8,14 @@ Vue.CreateApp({
     },
     methods: {
         getAllBooks(){
-            this.getAllBooks(baseUrl)
+            this.getBooks(baseUrl);
         },
         async getBooks(url){
             try {
-                const response= await axios.get(url)
-                this.books = response.data
+                const response= await axios.get(url);
+                this.books = await response.data;
             } catch (ex){
-                alert(ex.message)
+                alert(ex.message);
             }
         }
     },
