@@ -4,6 +4,8 @@ Vue.createApp({
     data() {
         return {
             books: [],
+            idToGetBy: -1,
+            singleBook: null,
         }
     },
     methods: {
@@ -17,6 +19,15 @@ Vue.createApp({
             } catch (ex){
                 alert(ex.message);
             }
-        }
+        },
+        async getBookById(id){
+            const url = baseUrl + "/" + id;
+            try{
+                const response = await axios.get(url);
+                this.singleBook = await response.data;
+            } catch (ex){
+                alert(ex.message);
+            }
+        },
     },
 }).mount('#app')

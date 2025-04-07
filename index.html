@@ -11,9 +11,34 @@
 <body>
     <h1>Bookstore</h1>
     <div id="app">
-        <button id="getAllButton" v-on:click="getAllBooks" class="btn btn-primary">Load Books</button>
 
-        <table v-if="books.length > 0" class="table table-striped">
+        <div class="container">
+            <button id="getAllButton" v-on:click="getAllBooks" class="btn btn-primary">Load Books</button>      
+            <table v-if="books.length > 0" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="book in books" :key="book.id">
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div v-else>
+                <p>No books available.</p>
+            </div> 
+        </div>
+
+        <div class="container mt-3">
+            <input v-model="idToGetBy" placeholder="Id" type="number"/>
+            <button id="getByIdButton" v-on:click="getBookById(idToGetBy)" class="btn btn-secondary">Get Book By ID</button>
+        <table v-if="singleBook != null" class="table table-striped">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -22,15 +47,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="book in books" :key="book.id">
-                    <td>{{ book.id }}</td>
-                    <td>{{ book.title }}</td>
-                    <td>{{ book.price }}</td>
+                <tr>
+                    <td>{{ singleBook.id }}</td>
+                    <td>{{ singleBook.title }}</td>
+                    <td>{{ singleBook.price }}</td>
                 </tr>
             </tbody>
-        </table>
+        </table>    
         <div v-else>
-            <p>No books available.</p>
+            <p>No book found with that ID.</p>
+        </div>
         </div>
 
     </div>
