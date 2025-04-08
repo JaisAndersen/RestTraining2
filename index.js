@@ -10,6 +10,8 @@ Vue.createApp({
             deleteMessage: "",
             addBookData: {id: 0, title: "", price: 0 },
             addBookMessage: "",
+            updateBookData: {id: 0, title: "", price: 0 },
+            updateBookMessage: "",
         }
     },
     methods: {
@@ -47,6 +49,16 @@ Vue.createApp({
             try{
                 response = await axios.post(baseUrl, this.addBookData);
                 this.addBookMessage = "response " + response.status + " " + response.statusText;
+                this.getAllBooks();
+            } catch (ex){
+                alert(ex.message);
+            }
+        },
+        async updateBook(){
+            const url = baseUrl + "/" + this.updateBookData.id;
+            try{
+                response = await axios.put(url, this.updateBookData);
+                this.updateMessage = "response " + responce.status + " " + response.statusText;
                 this.getAllBooks();
             } catch (ex){
                 alert(ex.message);
