@@ -9,13 +9,14 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Bookstore</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <div id="app" class="container">
+    <div id="app" class="container p-4 my-4 border border-dark rounded">
         <h1>Bookstore</h1>
 
-        <button id="getAllButton" v-on:click="getAllBooks" class="btn btn-primary">Load Books</button>
+        <button id="getAllButton" v-on:click="getAllBooks" class="btn btn-primary m-1">Load Books</button>
 
         <table v-if="books.length > 0" class="table table-striped">
             <thead>
@@ -37,8 +38,8 @@
             <p>No books available.</p>
         </div>
 
-        <input v-model="idToGetBy" placeholder="Id" type="number" />
-        <button id="getByIdButton" v-on:click="getBookById(idToGetBy)" class="btn btn-secondary">Get Book By
+        <input class="input" v-model="idToGetBy" placeholder="Id" type="number" />
+        <button id="getByIdButton" v-on:click="getBookById(idToGetBy)" class="btn btn-secondary m-1">Get Book By
             ID</button>
         <table v-if="singleBook != null" class="table table-striped">
             <thead>
@@ -60,15 +61,15 @@
             <p>No book found with that ID.</p>
         </div>
 
-        <input v-model.number="deleteId" placeholder="Id" type="number"/>
-        <button v-on:click="deleteBook(deleteId)" class="btn btn-warning">Delete</button>
-        {{ deleteResponse }}
+        <input class="input" v-model.number="deleteId" placeholder="Id" type="number"/>
+        <button v-on:click="deleteBook(deleteId)" class="btn btn-warning m-1">Delete</button>
+        <div>{{ deleteResponse }}</div>
 
-        <input v-model.number="addBookData.id" placeholder="id" type="number"/>
-        <input v-model="addBookData.title" placeholder="title" type="text"/>
-        <input v-model.number="addBookData.price" placeholder="price" type="number"/>
-        <button v-on:click="addBook()" class="btn btn-success">Add Book</button>
-        {{ addResponse }}
+        <input class="input" v-model.number="addBookData.id" placeholder="id" type="number"/>
+        <input class="input" v-model="addBookData.title" placeholder="title" type="text"/>
+        <input class="input" v-model.number="addBookData.price" placeholder="price" type="number"/>
+        <button v-on:click="addBook()" class="btn btn-success m-1">Add Book</button>
+        <div>{{ addResponse }}</div>
 
     </div>
     <script src="index.js"></script>
