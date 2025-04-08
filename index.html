@@ -60,6 +60,16 @@
             <p>No book found with that ID.</p>
         </div>
 
+        <input v-model.number="deleteId" placeholder="Id" type="number"/>
+        <button v-on:click="deleteBook(deleteId)" class="btn btn-warning">Delete</button>
+        {{ deleteResponse }}
+
+        <input v-model.number="addBookData.id" placeholder="id" type="number"/>
+        <input v-model="addBookData.title" placeholder="title" type="text"/>
+        <input v-model.number="addBookData.price" placeholder="price" type="number"/>
+        <button v-on:click="addBook()" class="btn btn-success">Add Book</button>
+        {{ addResponse }}
+
     </div>
     <script src="index.js"></script>
 </body>
