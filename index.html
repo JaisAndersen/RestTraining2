@@ -71,6 +71,13 @@
         <button v-on:click="addBook()" class="btn btn-success m-1">Add Book</button>
         <div>{{ addResponse }}</div>
 
+        <h2>Update Book</h2>
+        <input class="input" v-model.number="updateBookData.id" placeholder="id" type="number"/>
+        <input class="input" v-model="updateBookData.title" placeholder="title" type="text"/>
+        <input class="input" v-model.number="updateBookData.price" placeholder="price" type="number"/>
+        <button v-on:click="updateBook()" class="btn btn-succes m-1">Update Book</button>
+        <div>{{ updateResponse }}</div>
+
     </div>
     <script src="index.js"></script>
 </body>

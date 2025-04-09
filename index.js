@@ -58,7 +58,7 @@ Vue.createApp({
             const url = baseUrl + "/" + this.updateBookData.id;
             try{
                 response = await axios.put(url, this.updateBookData);
-                this.updateMessage = "response " + responce.status + " " + response.statusText;
+                this.updateMessage = "response " + response.status + " " + response.statusText;
                 this.getAllBooks();
             } catch (ex){
                 alert(ex.message);
