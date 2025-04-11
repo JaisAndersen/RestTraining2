@@ -62,7 +62,7 @@
         </div>
 
         <input class="input" v-model.number="deleteId" placeholder="Id" type="number"/>
-        <button v-on:click="deleteBook(deleteId)" class="btn btn-warning m-1">Delete</button>
+        <button v-on:click="deleteBook(deleteId)" class="btn btn-danger m-1">Delete</button>
         <div>{{ deleteResponse }}</div>
 
         <input class="input" v-model.number="addBookData.id" placeholder="id" type="number"/>
@@ -75,7 +75,7 @@
         <input class="input" v-model.number="updateBookData.id" placeholder="id" type="number"/>
         <input class="input" v-model="updateBookData.title" placeholder="title" type="text"/>
         <input class="input" v-model.number="updateBookData.price" placeholder="price" type="number"/>
-        <button v-on:click="updateBook()" class="btn btn-succes m-1">Update Book</button>
+        <button v-on:click="updateBook()" class="btn btn-success m-1">Update Book</button>
         <div>{{ updateResponse }}</div>
 
     </div>
